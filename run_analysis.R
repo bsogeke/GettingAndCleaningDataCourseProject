@@ -1,6 +1,10 @@
+## Getting and Cleaning Data Course Project Assigment
+
+###################################
 ## 
-
-
+## Script Name - run_analysis.R
+##
+##################################
 
 filename <- "getdata-projectfiles-UCI HAR Dataset.zip"
 
@@ -15,24 +19,32 @@ if (!file.exists("getdata-projectfiles-UCI HAR Dataset")) {
 
 # Load activity labels + features
 activityLabels <- read.table("UCI HAR Dataset/activity_labels.txt")
-activityLabels
+## activityLabels
+
 activityLabels[,2] <- as.character(activityLabels[,2])
-activityLabels
+## activityLabels
+
 features <- read.table("UCI HAR Dataset/features.txt")
-features
+## features
+
 features[,2] <- as.character(features[,2])
-features
+## features
+
 # Extract only the data on mean and standard deviation
 featuresWanted <- grep(".*mean.*|.*std.*", features[,2])
-featuresWanted
+## featuresWanted
+
 featuresWanted.names <- features[featuresWanted,2]
-featuresWanted.names
+## featuresWanted.names
+
 featuresWanted.names = gsub('-mean', 'Mean', featuresWanted.names)
-featuresWanted.names
+## featuresWanted.names
+
 featuresWanted.names = gsub('-std', 'Std', featuresWanted.names)
-featuresWanted.names
+## featuresWanted.names
+
 featuresWanted.names <- gsub('[-()]', '', featuresWanted.names)
-featuresWanted.names
+## featuresWanted.names
 
 
 # Load the datasets
